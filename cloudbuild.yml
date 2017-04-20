@@ -1,8 +1,4 @@
 steps:
-  - name: gcr.io/${PROJECT_ID}/blog-builder:latest
-    entrypoint: pelican
-    args: ["/content", "-o", "/output"]
-
   - name: gcr.io/cloud-builders/gcloud
     entrypoint: gsutil
     args: ["-m", "rsync", "-r", "-c", "-d", "./output", "gs://andrews"]
